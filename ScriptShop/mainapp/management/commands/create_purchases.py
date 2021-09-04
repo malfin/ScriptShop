@@ -12,7 +12,7 @@ class Command(BaseCommand):
         while i <= 4:
             Purchases.objects.get_or_create(
                 user_id=i + 1,
-                product=f'Товра #{i + 1}',
+                product_id={i+1},
                 status='s',
             )
             i += 1
