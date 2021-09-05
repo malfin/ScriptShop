@@ -31,7 +31,7 @@ class Command(BaseCommand):
                     email=f'test{i + 1}@mail.ru'
                 )
                 i += 1
-            print('Пользователь успешно создан!')
+            print('Пользователи успешно создан!')
         elif number == '2':
             UserProfile.objects.create_superuser('admin', password='pass', balance=9999)
             print('Супер-пользователь успешно создан: login: admin; password: pass')
