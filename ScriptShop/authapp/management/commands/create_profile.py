@@ -22,7 +22,7 @@ class Command(BaseCommand):
         if number == '1':
             i = 0
             while i <= 9:
-                UserProfile.objects.create_user(f'user{i + 1}', password='pass', balance=random.randint(0, 100),
+                UserProfile.objects.create_user(f'user{i + 1}', password='pass', balance=random.randint(0, 1000),
                                                 first_name=random.choice(first_name),
                                                 last_name=random.choice(last_name),
                                                 email=f'test{i + 1}@mail.ru')
