@@ -33,19 +33,16 @@ class Product(models.Model):
         verbose_name_plural = 'товары'
 
 
-class Purchases(models.Model):
-    SUCCESS = 's'
-    WAITING = 'w'
-    REJECTED = 'r'
+class Status(models.TextChoices):
+    SUCCESS = 's', 'оплачено'
+    WAITING = 'w', 'ожидает оплаты'
+    REJECTED = 'r', 'отклонено'
 
-    STATUS_CHOICES = (
-        (SUCCESS, 'оплачено'),
-        (WAITING, 'ожидает оплаты'),
-        (REJECTED, 'отклонено'),
-    )
+
+class Purchases(models.Model):
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, verbose_name='пользователь')
     product = models.ManyToManyField(Product, verbose_name='товар')
-    status = models.CharField(verbose_name='статус', choices=STATUS_CHOICES, default=WAITING, max_length=1)
+    status = models.CharField(verbose_name='статус', choices=Status.choices, default=Status.WAITING, max_length=1)
 
     def __str__(self):
         return f'{self.user.username} | {self.status}'
