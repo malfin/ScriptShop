@@ -23,7 +23,7 @@ function App() {
                     </div>
                     <div className="card">
                         <div className="card-header">
-                            <h5>Товар #1</h5>
+                            <h5>Товар #2</h5>
                         </div>
                         <div className="card-body">
                             <p>
@@ -33,7 +33,7 @@ function App() {
                     </div>
                     <div className="card">
                         <div className="card-header">
-                            <h5>Товар #1</h5>
+                            <h5>Товар #3</h5>
                         </div>
                         <div className="card-body">
                             <p>
