@@ -1,15 +1,15 @@
 const Product = (product) => {
     console.log('product:', product);
     return (
-        <tr className='m-5'>
-            <td className='p-2'>
+        <tr>
+            <td>
                 {product.name}
             </td>
-            <td className='p-2'>
+            <td>
                 {product.created}
             </td>
-            <td className='p-2'>
-                {product.sum}
+            <td>
+                {product.sum}руб.
             </td>
         </tr>
     )
@@ -18,12 +18,12 @@ const Product = (product) => {
 const ProductList = (props) => {
     console.log('propsProduct', props.props);
     return (
-        <table className="product-list">
+        <table className="product-list text-justify">
             <thead>
             <tr className="text-dark m-2">
-                <th className='m-2'>Name</th>
-                <th className='m-2'>Created</th>
-                <th className='m-2'>Sum</th>
+                <th className='m-2'>Товар</th>
+                <th className='m-2'>Создано</th>
+                <th className='m-2'>Сумма</th>
             </tr>
             </thead>
             <tbody>
