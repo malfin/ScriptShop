@@ -1,70 +1,53 @@
-// import './App.css';
+import './App.css';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import Header from './components/Header';
-// import Footer from './components/Footer';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import ProjectList from './components/Project';
+import ProductList from "./components/Product";
 
+const projectMock = [
+    {'name': "Project X", 'created': "2021-09-02"},
+    {'name': "Project TWO", 'created': "2021-09-07"},
+];
 
-class App extends React.Component{
+const productMock = [
+    {'name': "Товар #1", 'created': "2021-09-02", 'sum': '120'},
+    {'name': "Товар #2", 'created': "2021-09-07", 'sum': '60'},
+    {'name': "Товар #3", 'created': "2021-09-28", 'sum': '90'},
+];
+
+class App extends React.Component {
     constructor(props) {
         super(props);
-        this.setState({
-            'name': [],
-            'category': [],
-            'sum': [],
-        });
+        this.state = {
+            users: [],
+            projects: [],
+            tasks: [],
+            products: [],
+        };
     }
+
+    componentDidMount() {
+        this.setState({
+                projects: projectMock,
+                products: productMock,
+            }
+        )
+    }
+
     render() {
         console.log('state', this.state);
-        return(
-            <div>ScriptShop</div>
+        return (
+            <div className='container'>
+                <Header/>
+                <ProjectList projects={this.state.projects}/>
+                <ProductList products={this.state.products}/>
+                <Footer/>
+            </div>
+
         )
     }
 }
-
-
-// function App() {
-//     return (
-//         <div className="container">
-//             <Header/>
-//             <h3 className="mt-5">Все Товары</h3>
-//             <div className="App m-5">
-//                 <div className="d-flex justify-content-between flex-wrap">
-//                     <div className="card">
-//                         <div className="card-header">
-//                             <h5>Товар #1</h5>
-//                         </div>
-//                         <div className="card-body">
-//                             <p>
-//                                 Описание
-//                             </p>
-//                         </div>
-//                     </div>
-//                     <div className="card">
-//                         <div className="card-header">
-//                             <h5>Товар #2</h5>
-//                         </div>
-//                         <div className="card-body">
-//                             <p>
-//                                 Описание
-//                             </p>
-//                         </div>
-//                     </div>
-//                     <div className="card">
-//                         <div className="card-header">
-//                             <h5>Товар #3</h5>
-//                         </div>
-//                         <div className="card-body">
-//                             <p>
-//                                 Описание
-//                             </p>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
-//             <Footer/>
-//         </div>
-//     );
-// }
 
 export default App;
