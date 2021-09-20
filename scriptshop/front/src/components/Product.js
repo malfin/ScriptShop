@@ -1,7 +1,7 @@
-const Product = (product) => {
+const Product = ({product}) => {
     console.log('product:', product);
     return (
-        <tr>
+        <tr className="product-row">
             <td>
                 {product.name}
             </td>
@@ -9,27 +9,30 @@ const Product = (product) => {
                 {product.created}
             </td>
             <td>
-                {product.sum}руб.
+                {product.sum} руб.
             </td>
         </tr>
     )
 }
 
-const ProductList = (props) => {
-    console.log('propsProduct', props.props);
+const ProductList = ({products}) => {
+    console.log('products:', products);
+
     return (
-        <table className="product-list text-justify">
+        <table className={"product-list"}>
             <thead>
-            <tr className="text-dark m-2">
-                <th className='m-2'>Товар</th>
-                <th className='m-2'>Создано</th>
-                <th className='m-2'>Сумма</th>
+            <tr>
+                <th>Название</th>
+                <th>Создано</th>
+                <th>Сумма</th>
             </tr>
             </thead>
             <tbody>
-            {props.products.map(Product)}
+            {/*{products.map(product)}*/}
+            {products.map((product) => <Product key={product.name} product={product}/>)}
             </tbody>
         </table>
     )
 }
+
 export default ProductList;
