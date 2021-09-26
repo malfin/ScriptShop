@@ -20,6 +20,8 @@ class App extends React.Component {
     }
 
     componentDidMount() {
+        // call rest API
+
         this.setState({
                 products: productMock,
             }
