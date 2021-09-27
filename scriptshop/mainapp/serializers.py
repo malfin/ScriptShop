@@ -1,6 +1,7 @@
 from rest_framework.serializers import ModelSerializer
 
 from mainapp.models import Purchases, Product, Category
+from authapp.models import UserProfile
 
 
 class PurchasesSerializer(ModelSerializer):
@@ -19,3 +20,16 @@ class CategorySerializer(ModelSerializer):
     class Meta:
         model = Category
         fields = '__all__'
+
+
+class UserProfileSerializer(ModelSerializer):
+    class Meta:
+        model = UserProfile
+        fields = (
+            'id',
+            'first_name',
+            'last_name',
+            'username',
+            'balance',
+            'phone_number'
+        )

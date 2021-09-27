@@ -1,9 +1,12 @@
 const Product = ({product}) => {
-    console.log('product:', product);
+    // console.log('product:', product);
     return (
         <tr className="product-row">
             <td>
                 {product.name}
+            </td>
+            <td>
+                {product.category}
             </td>
             <td>
                 {product.created}
@@ -16,13 +19,14 @@ const Product = ({product}) => {
 }
 
 const ProductList = ({products}) => {
-    console.log('products:', products);
+    // console.log('products:', products);
 
     return (
         <table className={"product-list"}>
             <thead>
             <tr>
                 <th>Название</th>
+                <th>категория</th>
                 <th>Создано</th>
                 <th>Сумма</th>
             </tr>
