@@ -221,8 +221,6 @@ class App extends React.Component {
                     <Route exact path={'/products'}>
                         <ProductList products={this.state.products}/>
                     </Route>
-
-
                 </Router>
                 <Footer/>
             </div>
