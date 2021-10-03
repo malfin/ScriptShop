@@ -212,7 +212,6 @@ class App extends React.Component {
             <div className='container'>
                 <Router>
                     <Header/>
-
                     <Route exact path={'/category'}>
                         <CategoryList categories={this.state.categories}/>
                     </Route>
