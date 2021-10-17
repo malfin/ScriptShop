@@ -1,14 +1,18 @@
+import {Link} from "react-router-dom";
+
 const Category = ({category}) => {
     // console.log('category:', category);
     return (
         <tr className="product-row">
             <td>
-                {category.name}
+                <Link to={`/category/detail/${category.id}`}>{category.name}</Link>
             </td>
             <td>
                 {category.created}
             </td>
-
+            <td>
+                <Link to={`/category/delete/${category.id}`}>delete</Link>
+            </td>
         </tr>
     )
 }
@@ -22,6 +26,7 @@ const CategoryList = ({categories}) => {
             <tr>
                 <th>Название</th>
                 <th>Создано</th>
+                <th>Действие</th>
             </tr>
             </thead>
             <tbody>

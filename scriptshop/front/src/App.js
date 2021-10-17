@@ -7,6 +7,9 @@ import Footer from './components/Footer';
 import ProductList from "./components/Product";
 import UserList from "./components/User";
 import CategoryList from "./components/Category";
+import axios from "axios";
+import CategoryDetail from "./components/CategoryDetail";
+import UserDetail from "./components/UserDetail";
 
 const userMock = [
     {
@@ -197,7 +200,12 @@ class App extends React.Component {
 
     componentDidMount() {
         // call rest API
-
+        axios
+            .get("http://localhost:8000/api/v1/users/")
+            .then((result) => {
+                console.log('result', result)
+            })
+            .catch((error) => console.log(error));
         this.setState({
                 products: productMock,
                 categories: categoryMock,
@@ -215,11 +223,17 @@ class App extends React.Component {
                     <Route exact path={'/category'}>
                         <CategoryList categories={this.state.categories}/>
                     </Route>
+                    <Route exact path={'/category/detail/:id'}>
+                        <CategoryDetail categories={this.state.categories}/>
+                    </Route>
                     <Route exact path={'/users'}>
                         <UserList users={this.state.users}/>
                     </Route>
-                    <Route exact path={'/products'}>
-                        <ProductList products={this.state.products}/>
+                    <Route exact path="/users/detail/:id">
+                        <UserDetail users={this.state.users}/>
+                    </Route>
+                     <Route exact path="/products/">
+                        <ProductList products={this.state.users}/>
                     </Route>
                 </Router>
                 <Footer/>

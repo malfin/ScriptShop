@@ -1,7 +1,12 @@
+import {Link} from "react-router-dom";
+
 const Product = ({product}) => {
     // console.log('product:', product);
     return (
         <tr className="product-row">
+            <td>
+                {product.id}
+            </td>
             <td>
                 {product.name}
             </td>
@@ -14,6 +19,9 @@ const Product = ({product}) => {
             <td>
                 {product.sum} руб.
             </td>
+            <td>
+                <Link to={`/products/delete/${product.id}`} className="nav-link">delete</Link>
+            </td>
         </tr>
     )
 }
@@ -25,10 +33,12 @@ const ProductList = ({products}) => {
         <table className={"product-list"}>
             <thead>
             <tr>
+                <th>ID</th>
                 <th>Название</th>
                 <th>категория</th>
                 <th>Создано</th>
                 <th>Сумма</th>
+                <th>actions</th>
             </tr>
             </thead>
             <tbody>
