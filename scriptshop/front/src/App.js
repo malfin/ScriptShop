@@ -46,7 +46,7 @@ class App extends React.Component {
             .then((result) => {
                 // console.log('users result:', result)
                 this.setState({
-                    category: result.data
+                    categories: result.data
                 })
             })
             .catch((error) => console.log(error));
@@ -71,7 +71,7 @@ class App extends React.Component {
                         <UserDetail users={this.state.users}/>
                     </Route>
                     <Route exact path="/products/">
-                        <ProductList products={this.state.users}/>
+                        <ProductList products={this.state.products}/>
                     </Route>
                 </Router>
                 <Footer/>
