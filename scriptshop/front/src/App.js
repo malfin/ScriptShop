@@ -11,6 +11,9 @@ import axios from "axios";
 import CategoryDetail from "./components/CategoryDetail";
 import UserDetail from "./components/UserDetail";
 
+const API_URL = "http://127.0.0.1:8000";
+const getResourceURL = (suffix) => `${API_URL}/api/v1/${suffix}/`;
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -24,7 +27,7 @@ class App extends React.Component {
     componentDidMount() {
         // call rest API
         axios
-            .get("http://127.0.0.1:8000/api/v1/users/")
+            .get(getResourceURL('users'))
             .then((result) => {
                 // console.log('users result:', result)
                 this.setState({
@@ -33,7 +36,7 @@ class App extends React.Component {
             })
             .catch((error) => console.log(error));
         axios
-            .get("http://127.0.0.1:8000/api/v1/products/")
+            .get(getResourceURL('products'))
             .then((result) => {
                 // console.log('users result:', result)
                 this.setState({
@@ -42,7 +45,7 @@ class App extends React.Component {
             })
             .catch((error) => console.log(error));
         axios
-            .get("http://127.0.0.1:8000/api/v1/category/")
+            .get(getResourceURL('category'))
             .then((result) => {
                 // console.log('users result:', result)
                 this.setState({
