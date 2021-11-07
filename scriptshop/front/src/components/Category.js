@@ -1,4 +1,5 @@
-import {Link} from "react-router-dom";
+import {NavLink as Link} from "react-router-dom";
+import React from "react";
 
 const Category = ({category}) => {
     // console.log('category:', category);
@@ -11,17 +12,15 @@ const Category = ({category}) => {
                 {category.created}
             </td>
             <td>
-                <Link to={`/category/delete/${category.id}`}>delete</Link>
+                <Link to={`/category/delete/${category.id}`} className="nav-link">delete</Link>
             </td>
         </tr>
     )
 }
 
 const CategoryList = ({categories}) => {
-    // console.log('categories:', categories);
-
     return (
-        <table className={"category-list"}>
+        <table className={"table category-list"}>
             <thead>
             <tr>
                 <th>Название</th>
@@ -30,7 +29,6 @@ const CategoryList = ({categories}) => {
             </tr>
             </thead>
             <tbody>
-            {/*{products.map(product)}*/}
             {categories.map((category) => <Category key={category.name} category={category}/>)}
             </tbody>
         </table>

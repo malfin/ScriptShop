@@ -19,7 +19,7 @@ class PurchasesList(ListView):
 
 
 class ProductViewSet(ModelViewSet):
-    queryset = Product.objects.all()
+    queryset = Product.objects.filter(is_active=True)
     serializer_class = ProductSerializer
 
 
@@ -29,7 +29,7 @@ class PurchasesViewSet(ModelViewSet):
 
 
 class CategoryViewSet(ModelViewSet):
-    queryset = Category.objects.all()
+    queryset = Category.objects.filter(is_active=True)
     serializer_class = CategorySerializer
 
 

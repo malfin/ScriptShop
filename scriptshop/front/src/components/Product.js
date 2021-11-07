@@ -1,4 +1,5 @@
-import {Link} from "react-router-dom";
+import {NavLink as Link} from "react-router-dom";
+import React from "react";
 
 const Product = ({product}) => {
     // console.log('product:', product);
@@ -11,7 +12,7 @@ const Product = ({product}) => {
                 {product.name}
             </td>
             <td>
-                {product.category}
+                {product.category.name}
             </td>
             <td>
                 {product.created}
@@ -30,7 +31,7 @@ const ProductList = ({products}) => {
     // console.log('products:', products);
 
     return (
-        <table className={"product-list"}>
+        <table className={"table product-list"}>
             <thead>
             <tr>
                 <th>ID</th>

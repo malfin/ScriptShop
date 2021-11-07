@@ -56,11 +56,14 @@ class App extends React.Component {
     }
 
     render() {
-        console.log('state', this.state);
+        // console.log('state', this.state);
         return (
             <div className='container'>
                 <Router>
                     <Header/>
+                    <Route exact path={'/'}>
+                        <h3>HellO!</h3>
+                    </Route>
                     <Route exact path={'/category'}>
                         <CategoryList categories={this.state.categories}/>
                     </Route>
