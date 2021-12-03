@@ -1,8 +1,7 @@
 import {NavLink as Link} from "react-router-dom";
-import React from "react";
+import React, {useEffect} from "react";
 
 const Category = ({category}) => {
-    // console.log('category:', category);
     return (
         <tr className="product-row">
             <td>
@@ -19,6 +18,9 @@ const Category = ({category}) => {
 }
 
 const CategoryList = ({categories}) => {
+    useEffect(() => {
+        document.title = 'Каталог'
+    }, [])
     return (
         <table className={"table category-list"}>
             <thead>

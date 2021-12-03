@@ -1,15 +1,18 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from "axios";
+
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ProductList from "./components/Product";
 import UserList from "./components/User";
 import CategoryList from "./components/Category";
-import axios from "axios";
 import CategoryDetail from "./components/CategoryDetail";
 import UserDetail from "./components/UserDetail";
+import Main from "./components/Main";
 
 const API_URL = "http://127.0.0.1:8000";
 const getResourceURL = (suffix) => `${API_URL}/api/v1/${suffix}/`;
@@ -25,11 +28,9 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        // call rest API
         axios
             .get(getResourceURL('users'))
             .then((result) => {
-                // console.log('users result:', result)
                 this.setState({
                     users: result.data
                 })
@@ -38,7 +39,6 @@ class App extends React.Component {
         axios
             .get(getResourceURL('products'))
             .then((result) => {
-                // console.log('users result:', result)
                 this.setState({
                     products: result.data
                 })
@@ -47,7 +47,6 @@ class App extends React.Component {
         axios
             .get(getResourceURL('category'))
             .then((result) => {
-                // console.log('users result:', result)
                 this.setState({
                     categories: result.data
                 })
@@ -56,13 +55,12 @@ class App extends React.Component {
     }
 
     render() {
-        // console.log('state', this.state);
         return (
             <div className='container'>
                 <Router>
                     <Header/>
                     <Route exact path={'/'}>
-                        <h3>HellO!</h3>
+                        <Main/>
                     </Route>
                     <Route exact path={'/category'}>
                         <CategoryList categories={this.state.categories}/>
@@ -82,7 +80,6 @@ class App extends React.Component {
                 </Router>
                 <Footer/>
             </div>
-
         )
     }
 }

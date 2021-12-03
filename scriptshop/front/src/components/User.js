@@ -1,11 +1,12 @@
 import {Link} from "react-router-dom";
+import {useEffect} from "react";
 
 const User = ({user}) => {
-    // console.log('user:', user);
+
     return (
         <tr className="product-row">
             <td>
-                 <Link to={`/users/detail/${user.id}`}>{user.id}</Link>
+                <Link to={`/users/detail/${user.id}`}>{user.id}</Link>
             </td>
             <td>
                 {user.username}
@@ -18,7 +19,9 @@ const User = ({user}) => {
 }
 
 const UserList = ({users}) => {
-    // console.log('users:', users);
+    useEffect(() => {
+        document.title = 'Пользователи'
+    }, [])
 
     return (
         <table className={"user-list"}>

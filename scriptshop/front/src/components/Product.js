@@ -1,8 +1,7 @@
 import {NavLink as Link} from "react-router-dom";
-import React from "react";
+import React, {useEffect} from "react";
 
 const Product = ({product}) => {
-    // console.log('product:', product);
     return (
         <tr className="product-row">
             <td>
@@ -28,8 +27,9 @@ const Product = ({product}) => {
 }
 
 const ProductList = ({products}) => {
-    // console.log('products:', products);
-
+    useEffect(() => {
+        document.title = 'Товар'
+    }, [])
     return (
         <table className={"table product-list"}>
             <thead>
@@ -43,7 +43,6 @@ const ProductList = ({products}) => {
             </tr>
             </thead>
             <tbody>
-            {/*{products.map(product)}*/}
             {products.map((product) => <Product key={product.name} product={product}/>)}
             </tbody>
         </table>
