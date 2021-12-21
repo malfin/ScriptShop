@@ -23,10 +23,6 @@ class LoginForm extends React.Component {
         return (
             <div className="login-form">
                 <form method="post" onSubmit={this.handleSubmit}>
-                    {/*<input type="text"*/}
-                    {/*       name="username"*/}
-                    {/*       placeholder="username"*/}
-                    {/*       onChange={this.handleChange} className="form-control"/>*/}
                     <div className="mb-3">
                         <label htmlFor="exampleInputUserName" className="form-label">Username</label>
                         <input type="text" className="form-control" name="username" placeholder="username"

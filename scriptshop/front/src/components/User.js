@@ -6,7 +6,7 @@ const User = ({user}) => {
     return (
         <tr className="product-row">
             <td>
-                <Link to={`/users/detail/${user.id}`}>{user.id}</Link>
+                <Link to={`/users/detail/${user.id}/`}>{user.id}</Link>
             </td>
             <td>
                 {user.username}
