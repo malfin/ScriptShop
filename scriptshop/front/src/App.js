@@ -13,6 +13,7 @@ import CategoryList from "./components/Category";
 import CategoryDetail from "./components/CategoryDetail";
 import UserDetail from "./components/UserDetail";
 import Main from "./components/Main";
+import LoginForm from "./components/LoginForm";
 
 const API_URL = "http://127.0.0.1:8000";
 const getResourceURL = (suffix) => `${API_URL}/api/v1/${suffix}/`;
@@ -76,6 +77,9 @@ class App extends React.Component {
                     </Route>
                     <Route exact path="/products/">
                         <ProductList products={this.state.products}/>
+                    </Route>
+                    <Route exact path="/login">
+                        <LoginForm/>
                     </Route>
                 </Router>
                 <Footer/>
