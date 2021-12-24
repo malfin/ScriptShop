@@ -10,7 +10,6 @@ const UserDetail = ({users}) => {
             <p>First name: {user.first_name}, Last name: {user.last_name}</p>
             <p>balance: {user.balance}</p>
             <p>Phone Number: {user.phone_number}</p>
-
         </div>
     )
 }

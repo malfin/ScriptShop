@@ -1,5 +1,6 @@
 import {Link} from "react-router-dom";
-import {useEffect} from "react";
+import {useEffect, Fragment} from "react";
+import Loader from "./Loader";
 
 const User = ({user}) => {
 
@@ -18,26 +19,32 @@ const User = ({user}) => {
     )
 }
 
-const UserList = ({users}) => {
+const UserList = ({users, isAuthenticated, loading}) => {
     useEffect(() => {
         document.title = 'Пользователи'
     }, [])
+    if (isAuthenticated) {
+        return (
+            <table className={"user-list"}>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>UserName</th>
+                    <th>First_name</th>
+                </tr>
+                </thead>
+                <tbody>
+                {loading && <Fragment>{users.map((user) => <User key={user.id} user={user}/>)}</Fragment>}
+                {!loading && <Loader/>}
+                </tbody>
+            </table>
+        )
+    } else {
+        return (
+            <h3>Авторизуйтесь!</h3>
+        )
+    }
 
-    return (
-        <table className={"user-list"}>
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>UserName</th>
-                <th>First_name</th>
-            </tr>
-            </thead>
-            <tbody>
-            {/*{products.map(product)}*/}
-            {users.map((user) => <User key={user.id} user={user}/>)}
-            </tbody>
-        </table>
-    )
 }
 
 export default UserList;

@@ -11,32 +11,36 @@ class LoginForm extends React.Component {
     }
 
     handleChange(event) {
-        console.log('change:', event.target.name, event.target.value);
+        this.setState({[event.target.name]: event.target.value})
     }
 
     handleSubmit(event) {
         event.preventDefault();
-        console.log('submit:', event.target);
+        // login = getToken
+        this.props.login(this.state.username, this.state.password)
     }
 
     render() {
+        document.title = 'Авторизация'
         return (
             <div className="login-form">
-                <form method="post" onSubmit={this.handleSubmit}>
+                <form method="post" onSubmit={(event) => this.handleSubmit(event)}>
                     <div className="mb-3">
-                        <label htmlFor="exampleInputUserName" className="form-label">Username</label>
-                        <input type="text" className="form-control" name="username" placeholder="username"
+                        <label htmlFor="exampleInputUserName" className="form-label">Имя пользователя</label>
+                        <input type="text" className="form-control"
+                               name="username" placeholder="Имя пользователя"
                                id="exampleInputUserName"
-                               onChange={this.handleChange}/>
+                               onChange={(event) => this.handleChange(event)}/>
                     </div>
                     <div className="mb-3">
-                        <label htmlFor="exampleInputPassword" className="form-label">Password</label>
-                        <input type="password" className="form-control" name="password" placeholder="password"
+                        <label htmlFor="exampleInputPassword" className="form-label">Пароль</label>
+                        <input type="password" className="form-control"
+                               name="password" placeholder="Пароль"
                                id="exampleInputPassword"
-                               onChange={this.handleChange}/>
+                               onChange={(event) => this.handleChange(event)}/>
                     </div>
                     <input type="submit"
-                           value="login" className="btn btn-success"/>
+                           value="Войти" className="btn btn-success"/>
                 </form>
             </div>
         )

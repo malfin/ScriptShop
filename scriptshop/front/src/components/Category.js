@@ -1,5 +1,6 @@
 import {NavLink as Link} from "react-router-dom";
-import React, {useEffect} from "react";
+import React, {useEffect, Fragment} from "react";
+import Loader from "./Loader";
 
 const Category = ({category}) => {
     return (
@@ -17,7 +18,7 @@ const Category = ({category}) => {
     )
 }
 
-const CategoryList = ({categories}) => {
+const CategoryList = ({categories, loading}) => {
     useEffect(() => {
         document.title = 'Каталог'
     }, [])
@@ -31,7 +32,8 @@ const CategoryList = ({categories}) => {
             </tr>
             </thead>
             <tbody>
-            {categories.map((category) => <Category key={category.name} category={category}/>)}
+            {!loading && <Loader/>}
+            {loading && <Fragment>{categories.map((category) => <Category key={category.name} category={category}/>)}</Fragment>}
             </tbody>
         </table>
     )
