@@ -44,7 +44,6 @@ const UserList = ({users, isAuthenticated, loading}) => {
             <h3>Авторизуйтесь!</h3>
         )
     }
-
 }
 
 export default UserList;
