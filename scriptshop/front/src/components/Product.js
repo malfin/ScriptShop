@@ -6,7 +6,7 @@ const API_URL = "http://127.0.0.1:8000";
 const getResourceURL = (suffix) => `${API_URL}/api/v1/${suffix}/`;
 
 const deleteProduct = (id) => {
-    console.log(id);
+    // console.log(id);
     axios
         .delete(getResourceURL(`products/${id}`))
         .then(() => {
