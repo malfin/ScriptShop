@@ -1,3 +1,4 @@
+from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
 
 from mainapp.models import Purchases, Product, Category
@@ -25,13 +26,21 @@ class ProductSerializer(ModelSerializer):
 
 
 class UserProfileSerializer(ModelSerializer):
+    password = serializers.CharField(write_only=True)
+
     class Meta:
         model = UserProfile
         fields = (
-            'id',
             'first_name',
             'last_name',
             'username',
-            'balance',
+            'email',
+            'password',
             'phone_number'
         )
+
+    def create(self, validated_data):
+        user = super(UserProfileSerializer, self).create(validated_data)
+        user.set_password(validated_data['password'])
+        user.save()
+        return user

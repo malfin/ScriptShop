@@ -19,7 +19,7 @@ function Header({isAuthenticated, logout}) {
                 <li className="nav-item"><Link to={"/products"} className="nav-link">Products</Link></li>
                 <li className="nav-item"><Link to={loginLink} className="nav-link"
                                                onClick={loginHandler}>{loginTitle}</Link></li>
-                {loginLink && <li className="nav-item"><Link to={"/register"} className="nav-link"
+                {!isAuthenticated && <li className="nav-item"><Link to={"/register"} className="nav-link"
                 >Заргистрироваться</Link></li>}
 
             </ul>

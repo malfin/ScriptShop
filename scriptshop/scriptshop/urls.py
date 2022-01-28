@@ -6,14 +6,14 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 import mainapp.views as mainapp
 from mainapp.views import PurchasesViewSet, ProductViewSet, CategoryViewSet, UserProfileViewSet
-from authapp.views import RegisterViewSet
+from authapp.views import CreateUserView
 
 router = DefaultRouter()
 router.register('purchases', PurchasesViewSet)
 router.register('products', ProductViewSet)
 router.register('category', CategoryViewSet)
 router.register('users', UserProfileViewSet)
-router.register('register', RegisterViewSet)
+router.register('register', CreateUserView)
 
 urlpatterns = [
 

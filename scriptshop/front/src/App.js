@@ -2,7 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import React from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import axios from "axios";
 
 import Header from './components/Header';
@@ -132,36 +132,34 @@ class App extends React.Component {
     render() {
         return (
             <div className='container'>
-                <Router>
-                    <Header isAuthenticated={this.isAuthenticated()} logout={() => this.logout()}/>
-                    <Route exact path={'/'}>
-                        <Main/>
-                    </Route>
-                    <Route exact path={'/category'}>
-                        <CategoryList categories={this.state.categories} loading={this.state.loading}/>
-                    </Route>
-                    <Route exact path={'/category/detail/:id'}>
-                        <CategoryDetail categories={this.state.categories}/>
-                    </Route>
-                    <Route exact path={'/users'}>
-                        <UserList users={this.state.users} isAuthenticated={this.isAuthenticated()}
-                                  loading={this.state.loading}/>
-                    </Route>
-                    <Route exact path="/users/detail/:id">
-                        <UserDetail users={this.state.users}/>
-                    </Route>
-                    <Route exact path="/products/">
-                        <ProductList products={this.state.products} loading={this.state.loading}/>
-                    </Route>
-                    <Route exact path="/login">
-                        <LoginForm
-                            login={(username, password) => this.login(username, password)}/>
-                    </Route>
-                    <Route exact path="/register">
-                        <RegisterForm
-                            login={(username, password) => this.register(username, password)}/>
-                    </Route>
-                </Router>
+                <Header isAuthenticated={this.isAuthenticated()} logout={() => this.logout()}/>
+                <Route exact path={'/'}>
+                    <Main/>
+                </Route>
+                <Route exact path={'/category'}>
+                    <CategoryList categories={this.state.categories} loading={this.state.loading}/>
+                </Route>
+                <Route exact path={'/category/detail/:id'}>
+                    <CategoryDetail categories={this.state.categories}/>
+                </Route>
+                <Route exact path={'/users'}>
+                    <UserList users={this.state.users} isAuthenticated={this.isAuthenticated()}
+                              loading={this.state.loading}/>
+                </Route>
+                <Route exact path="/users/detail/:id">
+                    <UserDetail users={this.state.users}/>
+                </Route>
+                <Route exact path="/products/">
+                    <ProductList products={this.state.products} loading={this.state.loading}/>
+                </Route>
+                <Route exact path="/login">
+                    <LoginForm
+                        login={(username, password) => this.login(username, password)}/>
+                </Route>
+                <Route exact path="/register">
+                    <RegisterForm
+                        login={(username, password) => this.register(username, password)}/>
+                </Route>
                 <Footer/>
             </div>
         )

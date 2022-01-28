@@ -1,6 +1,7 @@
 from django.views.generic import ListView
+from rest_framework.mixins import CreateModelMixin
 from rest_framework.permissions import IsAuthenticated, AllowAny
-from rest_framework.viewsets import ModelViewSet
+from rest_framework.viewsets import ModelViewSet, GenericViewSet
 
 from authapp.models import UserProfile
 from mainapp.models import Category, Product, Purchases
@@ -41,3 +42,9 @@ class UserProfileViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated]
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
+
+
+class CreateUserView(CreateModelMixin, GenericViewSet):
+    queryset = UserProfile.objects.all()
+    serializer_class = UserProfileSerializer
+    permission_classes = [AllowAny]

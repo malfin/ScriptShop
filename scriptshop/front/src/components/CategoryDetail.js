@@ -3,7 +3,9 @@ import {useParams} from "react-router-dom";
 
 const CategoryDetail = ({categories}) => {
     let {id} = useParams();
+    console.log(id);
     let category = categories.filter((item) => item.id === +id)[0];
+    console.log(category);
 
     return (
         <div className={"project-detail"}>
