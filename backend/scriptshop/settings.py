@@ -73,7 +73,7 @@ DATABASES = {
         'USER': 'admin',
         'PASSWORD': 'admin',
         'HOST': 'db',
-        'POST': 5432,
+        'POST': '5432',
     }
 }
 
