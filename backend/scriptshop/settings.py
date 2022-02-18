@@ -68,8 +68,12 @@ WSGI_APPLICATION = 'scriptshop.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'scriptshop',
+        'USER': 'admin',
+        'PASSWORD': 'admin',
+        'HOST': 'db',
+        'POST': 5432,
     }
 }
 

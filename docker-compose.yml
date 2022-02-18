@@ -1,9 +1,17 @@
 version: '3.2'
 
 services:
+  db:
+    image: postgres:14.2
+    privileged: true
+    env_file:
+      - db/.env
+
   backend:
     build:
       context: ./backend
+    depends_on:
+      - db
     expose:
       - 8080
     command: bash -c " python manage.py makemigrations && python manage.py migrate && gunicorn scriptshop.wsgi -b 0.0.0.0:8080 "
@@ -23,3 +31,11 @@ services:
       - 85:80
     depends_on:
       - nginx
+
+  adminer:
+    image: adminer:4.8.1-standalone
+    restart: always
+    ports:
+      - 7777:7777
+    depends_on:
+      - db
