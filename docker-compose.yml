@@ -20,7 +20,7 @@ services:
     build:
       context: ./nginx
     ports:
-      - 8000:80
+      - 8001:80
     depends_on:
       - backend
 
@@ -31,11 +31,3 @@ services:
       - 85:80
     depends_on:
       - nginx
-
-  adminer:
-    image: adminer:4.8.1-standalone
-    restart: always
-    ports:
-      - 7777:7777
-    depends_on:
-      - db
