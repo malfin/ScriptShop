@@ -13,7 +13,7 @@ class Command(BaseCommand):
             Product.objects.get_or_create(
                 name=f'Товар #{i + 1}',
                 category_id=i + 1,
-                desk=f'Описание товара, товар #{i + 1}',
+                desc=f'Описание товара, товар #{i + 1}',
                 sum=random.randint(0, 100),
             )
             i += 1
